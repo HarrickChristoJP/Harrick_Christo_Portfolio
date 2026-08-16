@@ -1,0 +1,708 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-heading: 'Space Grotesk', -apple-system, sans-serif;
+    --font-body: 'Inter', -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #09090B;
+    color: #F4F4F5;
+    font-family: var(--font-body);
+    overflow-x: hidden;
+  }
+
+  section {
+    scroll-margin-top: 5rem;
+  }
+
+  h1, h2, h3, h4, .font-heading {
+    font-family: var(--font-heading);
+    letter-spacing: -0.02em;
+  }
+
+  code, pre, .font-mono {
+    font-family: var(--font-mono);
+  }
+}
+
+/* Custom cyber-minimal grid & utilities */
+.bg-grid-pattern {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.09) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.09) 1px, transparent 1px);
+}
+
+.bg-dot-pattern {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.cyber-card {
+  background-color: #111113;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cyber-card:hover {
+  border-color: rgba(59, 130, 246, 0.35);
+  background-color: #141417;
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #09090B;
+}
+::-webkit-scrollbar-thumb {
+  background: #27272A;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3F3F46;
+}
+
+/* =========================================================================
+   LIGHT MODE DESIGN SYSTEM & HIGH-CONTRAST VISIBILITY
+   ========================================================================= */
+
+html.light,
+html.light body,
+.light body {
+  background-color: #F8FAFC !important;
+  color: #0F172A !important;
+}
+
+.light ::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+.light ::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+}
+.light ::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* Page Backgrounds & Sections */
+.light .bg-\[\#09090B\],
+.light .bg-\[\#0c0c0e\],
+.light .bg-\[\#0A0A0C\],
+.light #hero,
+.light #experience,
+.light #skills,
+.light #projects,
+.light #achievements,
+.light #contact,
+.light #about,
+.light footer {
+  background-color: #F8FAFC !important;
+}
+
+.light #metrics {
+  background-color: #F1F5F9 !important;
+}
+
+/* Primary Cards & Surfaces */
+.light .bg-\[\#111113\],
+.light .cyber-card {
+  background-color: #FFFFFF !important;
+  border-color: #CBD5E1 !important;
+  box-shadow: 0 4px 12px -2px rgba(15, 23, 42, 0.06), 0 2px 4px -2px rgba(15, 23, 42, 0.04) !important;
+}
+
+.light .hover\:bg-\[\#131316\]:hover,
+.light .hover\:bg-\[\#141417\]:hover,
+.light .hover\:bg-\[\#151518\]:hover {
+  background-color: #F8FAFC !important;
+}
+
+/* Secondary Container, Nested Cards, Badges, & Pills */
+.light .bg-zinc-900,
+.light .bg-zinc-900\/40,
+.light .bg-zinc-900\/50,
+.light .bg-zinc-900\/60,
+.light .bg-zinc-900\/70,
+.light .bg-zinc-900\/80,
+.light .bg-zinc-900\/90 {
+  background-color: #F1F5F9 !important;
+  border-color: #CBD5E1 !important;
+}
+
+.light .bg-zinc-800,
+.light .bg-zinc-850,
+.light .bg-zinc-855 {
+  background-color: #E2E8F0 !important;
+  border-color: #CBD5E1 !important;
+}
+
+/* Borders */
+.light .border-zinc-800,
+.light .border-zinc-800\/80,
+.light .border-zinc-800\/90,
+.light .border-zinc-850,
+.light .border-zinc-855,
+.light .border-zinc-700,
+.light .border-zinc-700\/80 {
+  border-color: #CBD5E1 !important;
+}
+
+.light .hover\:border-zinc-700:hover,
+.light .hover\:border-zinc-800:hover {
+  border-color: #94A3B8 !important;
+}
+
+.light .hover\:border-blue-500\/40:hover,
+.light .hover\:border-blue-500\/30:hover {
+  border-color: #3B82F6 !important;
+}
+
+/* =========================================================================
+   TYPOGRAPHY HIERARCHY & TEXT CONTRAST (HIGH VISIBILITY)
+   ========================================================================= */
+
+.light h1,
+.light h2,
+.light h3,
+.light h4,
+.light h5,
+.light h6,
+.light .font-heading {
+  color: #0F172A !important;
+}
+
+.light p,
+.light .text-zinc-300 {
+  color: #1E293B !important;
+}
+
+.light .text-zinc-100,
+.light .text-zinc-200 {
+  color: #0F172A !important;
+}
+
+.light .text-zinc-400 {
+  color: #334155 !important;
+}
+
+.light .text-zinc-500 {
+  color: #475569 !important;
+}
+
+.light .text-zinc-600 {
+  color: #64748B !important;
+}
+
+/* Ensure strong emphasis stays razor-sharp dark in light mode */
+.light strong,
+.light strong.text-white,
+.light strong.text-zinc-100,
+.light strong.text-zinc-200 {
+  color: #0F172A !important;
+  font-weight: 700 !important;
+}
+
+/* =========================================================================
+   ACCENT COLORS CONVERSION (FROM NEON DARK TO DEEP VIBRANT LIGHT)
+   ========================================================================= */
+
+/* Emerald / Green Accent (Used in Status, Key metrics, Success badges) */
+.light .text-emerald-400,
+.light .text-emerald-300,
+.light .text-green-400 {
+  color: #047857 !important; /* emerald-700 */
+  font-weight: 600;
+}
+
+.light .bg-emerald-500\/10,
+.light .bg-emerald-500\/20 {
+  background-color: #ECFDF5 !important;
+  border-color: #A7F3D0 !important;
+}
+
+/* Blue Accent (Used in Roles, Subtitles, Code tags, Links) */
+.light .text-blue-400,
+.light .text-blue-300,
+.light .text-cyan-400,
+.light .text-sky-400 {
+  color: #1D4ED8 !important; /* blue-700 */
+}
+
+.light .bg-blue-500\/10,
+.light .bg-blue-500\/20 {
+  background-color: #EFF6FF !important;
+  border-color: #BFDBFE !important;
+}
+
+/* Amber / Yellow / Orange Accent (LeetCode badges, stars, highlights) */
+.light .text-amber-400,
+.light .text-amber-300,
+.light .text-yellow-400,
+.light .text-orange-400 {
+  color: #B45309 !important; /* amber-700 */
+  font-weight: 600;
+}
+
+.light .bg-amber-500\/10,
+.light .bg-amber-500\/20 {
+  background-color: #FFFBEB !important;
+  border-color: #FDE68A !important;
+}
+
+/* Purple / Indigo Accent (Hackathons, AI tags) */
+.light .text-purple-400,
+.light .text-purple-300,
+.light .text-indigo-400 {
+  color: #6D28D9 !important; /* purple-700 */
+}
+
+.light .bg-purple-500\/10,
+.light .bg-purple-500\/20 {
+  background-color: #FAF5FF !important;
+  border-color: #E9D5FF !important;
+}
+
+/* Rose / Red Accent */
+.light .text-rose-400,
+.light .text-red-400 {
+  color: #BE123C !important; /* rose-700 */
+}
+
+/* =========================================================================
+   PROTECT BUTTONS & COLORED ACCENTS (CRITICAL FOR CONTRAST)
+   ========================================================================= */
+
+.light .bg-blue-600,
+.light .bg-blue-500,
+.light .bg-blue-600\/90,
+.light button.bg-blue-600,
+.light a.bg-blue-600,
+.light .bg-emerald-600,
+.light .bg-indigo-600,
+.light .bg-purple-600,
+.light .bg-rose-600 {
+  color: #FFFFFF !important;
+}
+
+.light .bg-blue-600 *,
+.light .bg-blue-500 *,
+.light button.bg-blue-600 *,
+.light a.bg-blue-600 * {
+  color: #FFFFFF !important;
+}
+
+.light button.bg-blue-600:hover,
+.light a.bg-blue-600:hover {
+  background-color: #1D4ED8 !important;
+}
+
+/* Active filter pills in Projects & Skills */
+.light .bg-blue-600.text-white {
+  background-color: #2563EB !important;
+  color: #FFFFFF !important;
+}
+
+/* Form Inputs & Textareas */
+.light input,
+.light textarea,
+.light select {
+  background-color: #FFFFFF !important;
+  border-color: #CBD5E1 !important;
+  color: #0F172A !important;
+}
+
+.light input::placeholder,
+.light textarea::placeholder {
+  color: #64748B !important;
+}
+
+.light input:focus,
+.light textarea:focus,
+.light select:focus {
+  border-color: #2563EB !important;
+  background-color: #FFFFFF !important;
+  outline: 2px solid rgba(37, 99, 235, 0.2) !important;
+}
+
+/* =========================================================================
+   SPECIFIC COMPONENT VISIBILITY ENHANCEMENTS
+   ========================================================================= */
+
+/* Navbar & Mobile Menu */
+.light #navbar {
+  background-color: rgba(255, 255, 255, 0.92) !important;
+  border-color: #CBD5E1 !important;
+  backdrop-filter: blur(16px) !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05) !important;
+}
+
+.light #navbar nav a {
+  color: #334155 !important;
+  font-weight: 500 !important;
+}
+
+.light #navbar nav a:hover {
+  color: #0F172A !important;
+  background-color: #F1F5F9 !important;
+}
+
+/* Navbar Social Links */
+.light #nav-github-link {
+  background-color: #FFFFFF !important;
+  border-color: #CBD5E1 !important;
+  color: #0F172A !important;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important;
+}
+
+.light #nav-github-link:hover {
+  background-color: #F1F5F9 !important;
+  border-color: #94A3B8 !important;
+}
+
+.light #nav-github-link svg {
+  color: #0F172A !important;
+  stroke: #0F172A !important;
+}
+
+.light #nav-github-link span {
+  color: #0F172A !important;
+  font-weight: 600 !important;
+}
+
+.light #nav-linkedin-link {
+  background-color: #EFF6FF !important;
+  border-color: #BFDBFE !important;
+  color: #1D4ED8 !important;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important;
+}
+
+.light #nav-linkedin-link:hover {
+  background-color: #DBEAFE !important;
+  border-color: #93C5FD !important;
+}
+
+.light #nav-linkedin-link svg {
+  color: #0A66C2 !important;
+  stroke: #0A66C2 !important;
+}
+
+.light #nav-linkedin-link span {
+  color: #1E40AF !important;
+  font-weight: 600 !important;
+}
+
+.light #nav-mobile-menu {
+  background-color: rgba(255, 255, 255, 0.98) !important;
+  border-color: #CBD5E1 !important;
+  color: #0F172A !important;
+}
+
+.light #nav-mobile-menu a {
+  color: #334155 !important;
+}
+
+.light #nav-mobile-menu a:hover {
+  color: #0F172A !important;
+  background-color: #F1F5F9 !important;
+}
+
+.light #nav-mobile-menu button {
+  background-color: #F1F5F9 !important;
+  color: #0F172A !important;
+  border-color: #CBD5E1 !important;
+}
+
+/* =========================================================================
+   HERO STATUS BADGE (LIGHT & DARK THEME)
+   ========================================================================= */
+#hero-status-badge {
+  background-color: #111113;
+  border-color: #27272A;
+}
+
+#hero-status-badge .status-label {
+  color: #94A3B8;
+}
+
+#hero-status-badge .status-value {
+  color: #34D399;
+}
+
+.light #hero-status-badge {
+  background-color: #FFFFFF !important;
+  border-color: #CBD5E1 !important;
+  box-shadow: 0 2px 6px -1px rgba(15, 23, 42, 0.07), 0 1px 4px -1px rgba(15, 23, 42, 0.04) !important;
+}
+
+.light #hero-status-badge .status-label {
+  color: #475569 !important;
+  font-weight: 600 !important;
+}
+
+.light #hero-status-badge .status-value {
+  color: #047857 !important; /* Rich deep emerald-700 */
+  font-weight: 700 !important;
+}
+
+/* =========================================================================
+   HERO TECH STACK RIBBON (HIGH VISIBILITY)
+   ========================================================================= */
+#hero-tech-stack .tech-stack-heading {
+  color: #94A3B8;
+  font-weight: 700;
+}
+
+#hero-tech-stack .tech-tag-pill {
+  background-color: #18181B;
+  border-color: #27272A;
+  color: #E2E8F0;
+  font-weight: 600;
+}
+
+.light #hero-tech-stack .tech-stack-heading {
+  color: #0F172A !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.05em !important;
+}
+
+.light #hero-tech-stack .tech-tag-pill {
+  background-color: #FFFFFF !important;
+  border-color: #CBD5E1 !important;
+  color: #0F172A !important;
+  font-weight: 700 !important;
+  box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.06), 0 1px 2px -1px rgba(15, 23, 42, 0.04) !important;
+}
+
+.light #hero-tech-stack .tech-tag-pill:hover {
+  background-color: #EFF6FF !important;
+  border-color: #3B82F6 !important;
+  color: #1D4ED8 !important;
+}
+
+/* =========================================================================
+   HERO DEVELOPER PROFILE CARD (RESPONSIVE TO LIGHT & DARK THEME)
+   ========================================================================= */
+
+/* Dark Mode Defaults */
+#hero-profile-card {
+  background-color: #111113;
+  border-color: #27272A;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+}
+
+/* Light Mode Overrides: Clean White Elevated Card */
+.light #hero-profile-card {
+  background-color: #FFFFFF !important;
+  border-color: #CBD5E1 !important;
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04) !important;
+}
+
+/* Avatar Bottom Vignette */
+#hero-profile-card .from-\[\#111113\] {
+  --tw-gradient-from: #111113 var(--tw-gradient-from-position);
+  --tw-gradient-to: rgba(17, 17, 19, 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), rgba(17, 17, 19, 0.6), var(--tw-gradient-to);
+}
+
+.light #hero-profile-card .from-\[\#111113\] {
+  --tw-gradient-from: #FFFFFF var(--tw-gradient-from-position) !important;
+  --tw-gradient-to: rgba(255, 255, 255, 0) var(--tw-gradient-to-position) !important;
+  --tw-gradient-stops: var(--tw-gradient-from), rgba(255, 255, 255, 0.6), var(--tw-gradient-to) !important;
+}
+
+/* Developer Name */
+#hero-profile-card h2 {
+  color: #FFFFFF;
+  font-weight: 700;
+}
+
+.light #hero-profile-card h2 {
+  color: #0F172A !important;
+  font-weight: 700 !important;
+}
+
+/* Location & Secondary text */
+.light #hero-profile-card .text-zinc-400,
+.light #hero-profile-card .text-zinc-500 {
+  color: #64748B !important;
+}
+
+/* CGPA Badge */
+.light #hero-profile-card .bg-blue-500\/10 {
+  background-color: #EFF6FF !important;
+  border-color: #BFDBFE !important;
+  color: #1D4ED8 !important;
+  font-weight: 600 !important;
+}
+
+/* Highlight boxes (College & LeetCode) */
+.light #hero-profile-card .bg-zinc-900,
+.light #hero-profile-card .bg-zinc-900\/70,
+.light #hero-profile-card .bg-zinc-900\/80,
+.light #hero-profile-card .bg-zinc-900\/90 {
+  background-color: #F8FAFC !important;
+  border-color: #E2E8F0 !important;
+}
+
+.light #hero-profile-card .border-zinc-800,
+.light #hero-profile-card .border-zinc-850,
+.light #hero-profile-card .border-zinc-855 {
+  border-color: #E2E8F0 !important;
+}
+
+.light #hero-profile-card .text-emerald-400 {
+  color: #047857 !important;
+  font-weight: 700 !important;
+}
+
+.light #hero-profile-card .text-amber-400 {
+  color: #B45309 !important;
+  font-weight: 700 !important;
+}
+
+.light #hero-profile-card .text-zinc-500 {
+  color: #64748B !important;
+}
+
+/* Quick Action Buttons */
+.light #hero-profile-card a {
+  background-color: #F1F5F9 !important;
+  border-color: #CBD5E1 !important;
+  color: #0F172A !important;
+  font-weight: 600 !important;
+}
+
+.light #hero-profile-card a:hover {
+  background-color: #E2E8F0 !important;
+  border-color: #94A3B8 !important;
+}
+
+.light #hero-profile-card a svg {
+  color: #0F172A !important;
+  stroke: #0F172A !important;
+}
+
+.light #hero-profile-card a span {
+  color: #0F172A !important;
+  font-weight: 600 !important;
+}
+
+/* #OPENTOWORK Live Indicator in Light Mode */
+.light #hero-profile-card .bg-\[\#09090B\]\/90 {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border-color: #CBD5E1 !important;
+  color: #047857 !important;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.06) !important;
+}
+
+.light #hero-profile-card .bg-\[\#09090B\]\/90 span.bg-emerald-400 {
+  background-color: #059669 !important;
+}
+
+/* Grid & Dot Backgrounds in Light Mode - High Visibility & Brighter Technical Grid */
+.light .bg-grid-pattern {
+  background-size: 32px 32px !important;
+  background-image: 
+    linear-gradient(to right, rgba(59, 130, 246, 0.22) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(59, 130, 246, 0.22) 1px, transparent 1px) !important;
+  opacity: 1 !important;
+}
+
+.light .bg-dot-pattern {
+  background-image: radial-gradient(rgba(59, 130, 246, 0.28) 1px, transparent 1px) !important;
+  opacity: 1 !important;
+}
+
+/* Modals */
+.light #project-modal-backdrop,
+.light #resume-modal-backdrop {
+  background-color: rgba(15, 23, 42, 0.65) !important;
+  backdrop-filter: blur(8px) !important;
+}
+
+.light #project-modal-container {
+  background-color: #FFFFFF !important;
+  border-color: #CBD5E1 !important;
+}
+
+.light #project-modal-container .bg-\[\#141417\],
+.light #project-modal-container .bg-\[\#111113\] {
+  background-color: #F8FAFC !important;
+  border-color: #CBD5E1 !important;
+}
+
+/* Code & Terminal Blocks: Keep crisp dark IDE styling in both themes */
+.light pre.bg-zinc-950,
+.light .bg-zinc-950 pre,
+.light .bg-zinc-950 code {
+  background-color: #0F172A !important;
+  color: #38BDF8 !important;
+  border-color: #1E293B !important;
+}
+
+.light .bg-zinc-950 {
+  background-color: #0F172A !important;
+  border-color: #1E293B !important;
+}
+
+.light .bg-zinc-950 * {
+  color: inherit;
+}
+
+.light .bg-zinc-950 .text-emerald-400 {
+  color: #34D399 !important;
+}
+
+.light .bg-zinc-950 .text-zinc-400,
+.light .bg-zinc-950 .text-zinc-500 {
+  color: #94A3B8 !important;
+}
+
+.light .bg-zinc-950 .text-white,
+.light .bg-zinc-950 .text-zinc-200,
+.light .bg-zinc-950 .text-zinc-300 {
+  color: #F8FAFC !important;
+}
+
+/* Floating Toast Notification */
+.light #contact-toast-notification {
+  background-color: #0F172A !important;
+  color: #FFFFFF !important;
+  border-color: #10B981 !important;
+}
+
+.light #contact-toast-notification * {
+  color: #FFFFFF !important;
+}
+
+/* Global Smooth Transitions */
+body, #navbar, header, footer, section, main, .cyber-card, input, textarea, select, button, a {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  transition-duration: 200ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+
