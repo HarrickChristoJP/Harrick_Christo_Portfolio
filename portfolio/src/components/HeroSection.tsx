@@ -5,7 +5,7 @@ import { ParticleCanvas } from './ParticleCanvas';
 import { TypingTitle } from './TypingTitle';
 
 interface HeroSectionProps {
-  onOpenResume: () => void;
+  onOpenResume?: () => void;
 }
 
 export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
@@ -66,14 +66,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
 
             {/* Action CTAs */}
             <div className="flex flex-wrap items-center gap-3.5 mb-10">
-              <button
+              <a
                 id="hero-resume-btn"
-                onClick={onOpenResume}
-                className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-base transition-all shadow-xl shadow-blue-600/25 active:scale-[0.98] border border-blue-400/30"
+                href={PERSONAL_INFO.resumeUrl}
+                download="Harrick_Christo_JP_Resume.pdf"
+                className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-base transition-all shadow-xl shadow-blue-600/25 active:scale-[0.98] border border-blue-400/30 cursor-pointer"
               >
                 <Download className="w-5 h-5 text-white" />
                 <span>Download Resume</span>
-              </button>
+              </a>
 
               <a
                 id="hero-view-projects-btn"
