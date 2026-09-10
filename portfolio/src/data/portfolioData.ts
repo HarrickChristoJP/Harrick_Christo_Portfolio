@@ -1,6 +1,5 @@
 import { Project, Experience, Education, SkillCategory, Achievement } from '../types';
 import profileAvatar from '../assets/images/developer_avatar_1786818456328.jpg';
-import resumePdf from '@/assets/resume.pdf';
 
 export const PERSONAL_INFO = {
   name: 'Harrick Christo J P',
@@ -13,7 +12,7 @@ export const PERSONAL_INFO = {
   github: 'https://github.com/HarrickChristoJP',
   linkedin: 'https://linkedin.com/in/harrick-jp',
   avatarUrl: profileAvatar,
-  resumeUrl: resumePdf,
+  resumeUrl: '/resume.pdf',
   bio: 'Software developer with hands-on experience in full-stack architecture, high-throughput RESTful APIs, and relational databases. Proven track record across multiple software internships, hackathon leadership victories, 1,500+ coding problems solved, and 500+ coding medals on SkillRack.',
   philosophy: 'Driven by robust system design, clean separation of concerns, and resilient APIs. I bridge the gap between high-performance Java/Spring Boot backends and intuitive, responsive React user interfaces.',
   status: 'Open to Software Engineering Opportunities',
