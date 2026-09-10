@@ -58,14 +58,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
           <ThemeToggle id="nav-theme-toggle-desktop" />
 
           {/* Resume View / Download (Prominent) */}
-          <button
+          <a
             id="nav-resume-btn"
-            onClick={onOpenResume}
+            href={PERSONAL_INFO.resumeUrl}
+            download="Harrick_Christo_JP_Resume.pdf"
             className="flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold transition-all shadow-md shadow-blue-600/20 active:scale-[0.98]"
           >
             <FileText className="w-4 h-4" />
             <span>Download Resume</span>
-          </button>
+          </a>
 
           {/* Direct Social Links (Prominent & Big) */}
           <div className="flex items-center gap-2 pl-2 border-l border-zinc-300 dark:border-zinc-800 ml-1">
@@ -100,15 +101,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
         <div className="flex items-center gap-2 ml-auto md:ml-0 md:hidden">
           <ThemeToggle id="nav-theme-toggle-mobile" />
 
-          <button
+          <a
             id="nav-mobile-resume-btn"
-            onClick={onOpenResume}
+            href={PERSONAL_INFO.resumeUrl}
+            download="Harrick_Christo_JP_Resume.pdf"
             aria-label="Download Resume"
             className="p-2 rounded-lg bg-blue-600 text-white font-medium text-xs flex items-center gap-1.5"
           >
             <FileText className="w-4 h-4" />
             <span>Resume</span>
-          </button>
+          </a>
           <button
             id="nav-mobile-menu-toggle"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -140,16 +142,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
           </div>
 
           <div className="pt-3 border-t border-zinc-800 flex flex-col gap-2.5">
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenResume();
-              }}
+            <a
+              href={PERSONAL_INFO.resumeUrl}
+              download="Harrick_Christo_JP_Resume.pdf"
+              onClick={() => setMobileMenuOpen(false)}
               className="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg bg-zinc-900 border border-zinc-700 text-zinc-100 text-sm font-medium"
             >
               <FileText className="w-4 h-4 text-blue-400" />
               <span>View & Download Resume</span>
-            </button>
+            </a>
             <div className="flex items-center justify-around pt-1 text-xs text-zinc-400">
               <a
                 href={PERSONAL_INFO.github}
